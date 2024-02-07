@@ -2,6 +2,9 @@ package com.chandara.ProductsApplication.ProductService.Impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.chandara.ProductsApplication.Entity.Product;
@@ -67,6 +70,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> findByPriceGreaterThan(double price) {
 		return productRepository.findByPriceGreaterThan(price);
+	}
+
+	@Override
+	public Page<Product> pagenation(int page, int size) {
+		return productRepository.findAll(PageRequest.of(page, size,Sort.by("price")));
 	}
 
 

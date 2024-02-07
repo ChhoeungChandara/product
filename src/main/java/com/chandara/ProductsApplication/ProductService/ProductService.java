@@ -2,6 +2,8 @@ package com.chandara.ProductsApplication.ProductService;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.chandara.ProductsApplication.Entity.Product;
 
 public interface ProductService {
@@ -15,5 +17,7 @@ public interface ProductService {
 	void deleteAllProduct();
 	List<Product> findByPriceLessThan(double price);
 	List<Product> findByPriceGreaterThan(double price);
+	Page<Product> pagenation(int page, int size);
+	
 
 }

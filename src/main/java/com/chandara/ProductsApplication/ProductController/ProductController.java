@@ -43,10 +43,10 @@ public class ProductController {
 		return ResponseEntity.ok("delete Success");
 	}
 	
-	@GetMapping
-	public ResponseEntity<?> getAll(){
-		return ResponseEntity.ok(productService.getAll());
-	}
+//	@GetMapping
+//	public ResponseEntity<?> getAll(){
+//		return ResponseEntity.ok(productService.getAll());
+//	}
 	
 	@GetMapping("filter")
 	public ResponseEntity<?> getByName(@RequestParam("name") String name){
@@ -66,6 +66,13 @@ public class ProductController {
 	@GetMapping("Graterthan") 
 	public ResponseEntity<?> findByPriceGreaterThan(@RequestParam double price){
 		return ResponseEntity.ok(productService.findByPriceGreaterThan(price));
+
+   }
+	@GetMapping
+	public ResponseEntity<?> page(@RequestParam(value = "page",defaultValue = "0") int page,
+			                      @RequestParam(value = "size",defaultValue = "10") int size
+			                      ){
+		return ResponseEntity.ok().body(productService.pagenation(page, size));
 
    }
 }
