@@ -58,11 +58,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void deleteAllProduct() {
-		productRepository.deleteAll();
-	}
-
-	@Override
 	public List<Product> findByPriceLessThan(double price) {
 		return productRepository.findByPriceLessThan(price);
 	}
@@ -73,10 +68,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Page<Product> pagenation(int page, int size) {
+	public Page<Product> pagination(int page, int size) {
 		return productRepository.findAll(PageRequest.of(page, size,Sort.by("price")));
 	}
-
 
 
 

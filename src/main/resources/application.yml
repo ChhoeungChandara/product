@@ -1,11 +1,20 @@
+#spring:
+#  datasource:
+#   url: jdbc:postgresql://localhost:5432/product
+#   username: ra
+#   password: 12345
+#  jpa:
+#   properties:
+#    hibernate :
+#     dialect: org.hibernate.dialect.PostgreSQLDialect
+#   hibernate:  
+#    ddl-auto: update 
+
 spring:
   datasource:
-   url: jdbc:postgresql://localhost:5432/product
-   username: ra
-   password: 12345
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
   jpa:
-   properties:
-    hibernate :
-     dialect: org.hibernate.dialect.PostgreSQLDialect
-   hibernate:  
-    ddl-auto: update 
+    database-platform: org.hibernate.dialect.H2Dialect  

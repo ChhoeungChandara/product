@@ -14,10 +14,9 @@ public interface ProductService {
 	Product updateProduct(Long id,Product product);
 	void deleteProduct(Long id);
 	List<Product> getProductByName(String name);
-	void deleteAllProduct();
 	List<Product> findByPriceLessThan(double price);
 	List<Product> findByPriceGreaterThan(double price);
-	Page<Product> pagenation(int page, int size);
+	Page<Product> pagination(int page, int size);
 	
 
 }
