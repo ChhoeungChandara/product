@@ -53,11 +53,6 @@ public class ProductController {
 		return ResponseEntity.ok(productService.getProductByName(name));
 
    }
-	@DeleteMapping()
-	public ResponseEntity<?> deleteAllProduct(){
-		productService.deleteAllProduct();
-		return ResponseEntity.ok("deletes AllProduct Success");
-	}
 	@GetMapping("lessthan") 
 	public ResponseEntity<?> findByPriceLessThan(@RequestParam double price){
 		return ResponseEntity.ok(productService.findByPriceLessThan(price));
@@ -72,7 +67,7 @@ public class ProductController {
 	public ResponseEntity<?> page(@RequestParam(value = "page",defaultValue = "0") int page,
 			                      @RequestParam(value = "size",defaultValue = "10") int size
 			                      ){
-		return ResponseEntity.ok().body(productService.pagenation(page, size));
+		return ResponseEntity.ok().body(productService.pagination(page, size));
 
    }
 }
